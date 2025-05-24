@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flipcart-deployment
+  labels:
+    app: flipcart
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flipcart
+  template:
+    metadata:
+      labels:
+        app: flipcart
+    spec:
+      containers:
+      - name: debian
+        image: katarnak/debian:latest
+        ports:
+        - containerPort: 80
